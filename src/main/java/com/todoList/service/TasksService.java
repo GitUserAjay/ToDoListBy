@@ -24,9 +24,9 @@ public class TasksService {
 		return tlist;
 	}
 
-	public void insertTask(Task task2) {
-		task2.setCompleted(false);
-		repo.save(task2);
+	public void insertTask(Task task) {
+		task.setCompleted(false);
+		repo.save(task);
 	}
 
 	public void deleteTask(Long id) {

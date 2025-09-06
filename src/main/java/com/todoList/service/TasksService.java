@@ -41,8 +41,8 @@ public class TasksService {
 	}
 
 	public Task getTaskById(Long id) {
-		Task t=repo.findById(id).orElseThrow();
-		return t;
+		Task task=repo.findById(id).orElseThrow();
+		return task;
 	}
 
 	public boolean  updateTask(Task t) {

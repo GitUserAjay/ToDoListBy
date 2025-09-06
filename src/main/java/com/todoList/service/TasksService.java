@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.todoList.model.Task;
@@ -16,16 +18,15 @@ public class TasksService {
 	private TaskRepo repo;
 
 	public List<Task> getAllTasks() {
+		Sort sort=Sort.by(Direction.ASC,"expectedTime");
 		
-		List<Task> tlist=repo.findAll();
+		List<Task> tlist=repo.findAll(sort);
 		return tlist;
 	}
 
-	public void insertTask(String taskname) {
-		Task task=new Task();
-		task.setTaskname(taskname);
-		task.setCompleted(false);
-		repo.save(task);
+	public void insertTask(Task task2) {
+		task2.setCompleted(false);
+		repo.save(task2);
 	}
 
 	public void deleteTask(Long id) {

@@ -1,5 +1,6 @@
 package com.todoList.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class TodoListController {
 	}
 	
 	@PostMapping("/")
-	public String insertTask(@RequestParam String taskname) {
-		service.insertTask(taskname);
+	public String insertTask(@ModelAttribute Task task) {
+		service.insertTask(task);
 		return "redirect:/";
 	}
 	

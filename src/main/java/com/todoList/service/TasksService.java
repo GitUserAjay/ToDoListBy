@@ -35,9 +35,9 @@ public class TasksService {
 	
 	public void toggle(Long id) {
 		Optional<Task> opt=repo.findById(id);
-		Task t=opt.get();
-	t.setCompleted(!t.getCompleted());
-     repo.save(t);	      
+		Task task=opt.get();
+	task.setCompleted(!task.getCompleted());
+     repo.save(task);	      
 	}
 
 	public Task getTaskById(Long id) {
